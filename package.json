@@ -27,6 +27,7 @@
     "cache-manager": "5.1.6",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.0",
+    "jest-config": "29.4.2",
     "nanoid": "4.0.1",
     "nest-winston": "1.8.0",
     "reflect-metadata": "0.1.13",
@@ -47,6 +48,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "29.4.2",
+    "jest-environment-node": "29.4.2",
     "prettier": "^2.3.2",
     "prisma": "4.10.0",
     "source-map-support": "^0.5.20",
@@ -59,6 +61,7 @@
   },
   "jest": {
     "moduleFileExtensions": [
+      "mjs",
       "js",
       "json",
       "ts"
@@ -72,6 +75,6 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "../prisma/prisma-test-environment.mjs"
   }
 }

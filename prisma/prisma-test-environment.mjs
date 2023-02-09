@@ -26,20 +26,20 @@ class PrismaTestEnvironment extends TestEnvironment {
 
     // Generate a unique sqlite identifier for this test context
     this.dbName = `test_${nanoid()}.db`
-    process.env.DB_URL = `file:${this.dbName}`
-    this.global.process.env.DB_URL = `file:${this.dbName}`
+    process.env.DATABASE_URL = `file:./${this.dbName}`
+    this.global.process.env.DATABASE_URL = `file:./${this.dbName}`
     this.dbPath = path.join(__dirname, this.dbName)
   }
 
   async setup() {
     // Run the migrations to ensure our schema has the required structure
-    exec(`${prismaBinary} db push  `)
+    exec(`${prismaBinary} db push`)
     return super.setup()
   }
 
   async teardown() {
     try {
-      await fs.promises.unlink(this.dbPath)
+        await fs.promises.unlink(this.dbPath)
     } catch (error) {
       // doesn't matter as the environment is torn down
     }

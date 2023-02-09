@@ -13,11 +13,12 @@ export class PrismaRepository
 {
   private readonly logger = new Logger(PrismaRepository.name);
   constructor() {
+    const datasources = { db: { url: process.env.DATABASE_URL } };
     const logLevels: Prisma.LogLevel[] =
       process.env.NODE_ENV !== 'production'
         ? ['query', 'info', 'warn', 'error']
         : ['info', 'warn', 'error'];
-    super({ log: logLevels });
+    super({ log: logLevels, datasources: datasources });
   }
 
   async onModuleInit() {

@@ -22,4 +22,11 @@ describe('AppController', () => {
       expect(appController.getHello()).toBe('Hello World!');
     });
   });
+
+  describe('post', () => {
+    it('should return "Hello World!"', async () => {
+      const posts = await appController.getPosts();
+      expect(posts).toBeDefined()
+    });
+  });
 });
